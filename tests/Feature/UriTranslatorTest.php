@@ -2,13 +2,14 @@
 
 namespace CodeZero\UriTranslator\Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use CodeZero\UriTranslator\Tests\TestCase;
 use Illuminate\Support\Facades\Lang;
 
-class UriTranslatorTest extends TestCase
+final class UriTranslatorTest extends TestCase
 {
-    /** @test */
-    public function it_translates_every_segment_in_a_uri_to_the_current_locale()
+    #[Test]
+    public function it_translates_every_segment_in_a_uri_to_the_current_locale(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -26,8 +27,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('mijn/nieuwe/pagina', trans()->uri('my/new/page'));
     }
 
-    /** @test */
-    public function it_translates_every_segment_in_a_uri_to_the_given_locale()
+    #[Test]
+    public function it_translates_every_segment_in_a_uri_to_the_given_locale(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -40,8 +41,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('mijn/nieuwe/pagina', Lang::uri('my/new/page', 'nl'));
     }
 
-    /** @test */
-    public function it_uses_the_original_values_if_a_translation_does_not_exist()
+    #[Test]
+    public function it_uses_the_original_values_if_a_translation_does_not_exist(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -54,8 +55,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('my/new/page', Lang::uri('my/new/page', 'fr'));
     }
 
-    /** @test */
-    public function it_ignores_trailing_slashes()
+    #[Test]
+    public function it_ignores_trailing_slashes(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -68,8 +69,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('mijn/nieuwe/pagina', Lang::uri('/my/new/page/', 'nl'));
     }
 
-    /** @test */
-    public function it_skips_placeholders_in_a_uri()
+    #[Test]
+    public function it_skips_placeholders_in_a_uri(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -80,8 +81,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('artikels/{articles}', Lang::uri('articles/{articles}', 'nl'));
     }
 
-    /** @test */
-    public function you_can_translate_a_full_uri()
+    #[Test]
+    public function you_can_translate_a_full_uri(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -94,8 +95,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('producten/glazen', Lang::uri('products/glass', 'nl'));
     }
 
-    /** @test */
-    public function you_can_translate_a_full_uri_with_placeholder()
+    #[Test]
+    public function you_can_translate_a_full_uri_with_placeholder(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -108,8 +109,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('producten/glazen/{type}', Lang::uri('products/glass/{type}', 'nl'));
     }
 
-    /** @test */
-    public function you_can_specify_a_namespace()
+    #[Test]
+    public function you_can_specify_a_namespace(): void
     {
         $this->setTranslations([
             'nl' => [
@@ -120,8 +121,8 @@ class UriTranslatorTest extends TestCase
         $this->assertEquals('artikels/{article}', Lang::uri('articles/{article}', 'nl', 'blog'));
     }
 
-    /** @test */
-    public function the_uri_macro_is_available_via_the_trans_helper()
+    #[Test]
+    public function the_uri_macro_is_available_via_the_trans_helper(): void
     {
         $this->setTranslations([
             'nl' => [
