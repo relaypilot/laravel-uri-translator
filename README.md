@@ -1,5 +1,5 @@
 # Laravel URI Translator
-
+l12-compatibility
 [![GitHub release](https://img.shields.io/github/release/codezero-be/laravel-uri-translator.svg?style=flat-square)](https://github.com/codezero-be/laravel-uri-translator/releases)
 [![Laravel](https://img.shields.io/badge/laravel-11-red?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
 [![License](https://img.shields.io/packagist/l/codezero/laravel-uri-translator.svg?style=flat-square)](LICENSE.md)
